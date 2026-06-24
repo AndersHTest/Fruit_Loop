@@ -7,6 +7,7 @@ def move_right(state):
 
     maybe_item = state.g.get(state.player.pos_x + 1, state.player.pos_y)
     state.player.move(1, 0)
+    state.score -= 1
 
     if isinstance(maybe_item, pickups.Item):
         # we found something
@@ -30,6 +31,7 @@ def move_left(state):
 
     maybe_item = state.g.get(state.player.pos_x - 1, state.player.pos_y)
     state.player.move(-1, 0)
+    state.score -= 1
 
     if isinstance(maybe_item, pickups.Item):
         # We found something
@@ -51,6 +53,7 @@ def move_down(state):
 
     maybe_item = state.g.get(state.player.pos_x, state.player.pos_y + 1)
     state.player.move(0, 1)
+    state.score -= 1
 
     if isinstance(maybe_item, pickups.Item):
         # We found something
@@ -71,6 +74,7 @@ def move_down(state):
 def move_up(state):
     maybe_item = state.g.get(state.player.pos_x, state.player.pos_y - 1)
     state.player.move(0, -1)
+    state.score -= 1
 
     if isinstance(maybe_item, pickups.Item):
         # We found something
