@@ -1,4 +1,3 @@
-from src import pickups
 from status import print_status
 from gamestate import GameState
 from controls import *
@@ -16,13 +15,13 @@ def start(state):
         if command == "d" and state.player.can_move(1, 0, state.g):  # move right
             move_right(state)
 
-        elif command == "w" and state.player.can_move(0, -1, state.g):
+        elif command == "w" and state.player.can_move(0, -1, state.g): # move up
             move_up(state)
 
-        elif command == "a" and state.player.can_move(-1, 0, state.g):
+        elif command == "a" and state.player.can_move(-1, 0, state.g): # move left
             move_left(state)
 
-        elif command == "s" and state.player.can_move(0, 1, state.g):
+        elif command == "s" and state.player.can_move(0, 1, state.g): # move down
             move_down(state)
 
     # Hit kommer vi när while-loopen slutar

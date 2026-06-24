@@ -53,6 +53,12 @@ class Grid:
             self.set(j, 0, self.wall)
             self.set(j, self.height - 1, self.wall)
 
+        for k in range(3, 7):
+            self.set(6, k, self.wall)
+            self.set(30, k, self.wall)
+            self.set(k+13, 2, self.wall)
+            self.set(k+13, 8, self.wall)
+
 
     # Används i filen pickups.py
     def get_random_x(self):
