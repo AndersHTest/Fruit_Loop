@@ -3,5 +3,8 @@
 /.idea/inspectionProfiles/profiles_settings.xml
 /.idea/vcs.xml
 /.idea/workspace.xml
+.venv/
+.xml
+__pycache__
 
 .DS_Store

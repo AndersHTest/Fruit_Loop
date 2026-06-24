@@ -1,28 +1,6 @@
-from src.grid import Grid
-from src.player import Player
 from src import pickups
-
-
-# TODO: flytta denna till en annan fil
-class GameState:
-    """Samla spelets variabler i en klass."""
-    def __init__(self):
-        self.player = Player(2, 1)
-        self.score = 0
-        self.inventory = []
-
-        self.g = Grid()
-        self.g.set_player(self.player)
-        self.g.make_walls()
-        pickups.randomize(self.g)
-
-
-# TODO: flytta denna till en annan fil
-def print_status(game_grid, state):
-    """Visa spelvärlden och antal poäng."""
-    print("--------------------------------------")
-    print(f"You have {state.score} points.")
-    print(game_grid)
+from status import print_status
+from gamestate import GameState
 
 
 def start(state):
@@ -34,6 +12,8 @@ def start(state):
         command = input("Use WASD to move, Q/X to quit. ")
         command = command.casefold()[:1]
 
+        fruits = ["apple", "cherry", "watermelon"]
+
         if command == "d" and state.player.can_move(1, 0, state.g):  # move right
             # TODO: skapa funktioner, så vi inte behöver upprepa så mycket kod för riktningarna "W,A,S"
             maybe_item = state.g.get(state.player.pos_x + 1, state.player.pos_y)
@@ -41,10 +21,72 @@ def start(state):
 
             if isinstance(maybe_item, pickups.Item):
                 # we found something
-                state.score += maybe_item.value
-                print(f"You found a {maybe_item.name}, +{maybe_item.value} points.")
-                #g.set(player.pos_x, player.pos_y, g.empty)
-                state.g.clear(state.player.pos_x, state.player.pos_y)
+                if maybe_item.name in fruits:
+                    state.score += maybe_item.value * 2
+                    print(f"You found a {maybe_item.name}, +{maybe_item.value*2} points.")
+                    # g.set(player.pos_x, player.pos_y, g.empty)
+                    state.g.clear(state.player.pos_x, state.player.pos_y)
+
+                else:
+                    state.score += maybe_item.value
+                    print(f"You found a {maybe_item.name}, +{maybe_item.value} points.")
+                    #g.set(player.pos_x, player.pos_y, g.empty)
+                    state.g.clear(state.player.pos_x, state.player.pos_y)
+
+        elif command == "a" and state.player.can_move(-1, 0, state.g):
+            maybe_item = state.g.get(state.player.pos_x - 1, state.player.pos_y)
+            state.player.move(-1, 0)
+
+            if isinstance(maybe_item, pickups.Item):
+                #We found something
+                if maybe_item.name in fruits:
+                    state.score += maybe_item.value * 2
+                    print(f"You found a {maybe_item.name}, +{maybe_item.value*2} points.")
+                    # g.set(player.pos_x, player.pos_y, g.empty)
+                    state.g.clear(state.player.pos_x, state.player.pos_y)
+
+                else:
+                    state.score += maybe_item.value
+                    print(f"You found a {maybe_item.name}, +{maybe_item.value} points.")
+                    #g.set(player.pos_x, player.pos_y, g.empty)
+                    state.g.clear(state.player.pos_x, state.player.pos_y)
+
+        elif command == "s" and state.player.can_move(0, 1, state.g):
+            maybe_item = state.g.get(state.player.pos_x, state.player.pos_y + 1)
+            state.player.move(0, 1)
+
+            if isinstance(maybe_item, pickups.Item):
+                # We found something
+                if maybe_item.name in fruits:
+                    state.score += maybe_item.value * 2
+                    print(f"You found a {maybe_item.name}, +{maybe_item.value*2} points.")
+                    # g.set(player.pos_x, player.pos_y, g.empty)
+                    state.g.clear(state.player.pos_x, state.player.pos_y)
+
+                else:
+                    state.score += maybe_item.value
+                    print(f"You found a {maybe_item.name}, +{maybe_item.value} points.")
+                    #g.set(player.pos_x, player.pos_y, g.empty)
+                    state.g.clear(state.player.pos_x, state.player.pos_y)
+
+        elif command == "w" and state.player.can_move(0, 1, state.g):
+            maybe_item = state.g.get(state.player.pos_x, state.player.pos_y - 1)
+            state.player.move(0, -1)
+
+            if isinstance(maybe_item, pickups.Item):
+                # We found something
+                if maybe_item.name in fruits:
+                    state.score += maybe_item.value * 2
+                    print(f"You found a {maybe_item.name}, +{maybe_item.value*2} points.")
+                    # g.set(player.pos_x, player.pos_y, g.empty)
+                    state.g.clear(state.player.pos_x, state.player.pos_y)
+
+                else:
+                    state.score += maybe_item.value
+                    print(f"You found a {maybe_item.name}, +{maybe_item.value} points.")
+                    #g.set(player.pos_x, player.pos_y, g.empty)
+                    state.g.clear(state.player.pos_x, state.player.pos_y)
+
 
 
     # Hit kommer vi när while-loopen slutar
