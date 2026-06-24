@@ -1,6 +1,7 @@
 from status import print_status
 from gamestate import GameState
 from controls import *
+from status import print_inventory
 
 
 def start(state):
@@ -23,6 +24,9 @@ def start(state):
 
         elif command == "s" and state.player.can_move(0, 1, state.g): # move down
             move_down(state)
+
+        elif command == "i":
+            print_inventory(state)
 
     # Hit kommer vi när while-loopen slutar
     print("Thank you for playing!")

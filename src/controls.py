@@ -12,12 +12,16 @@ def move_right(state):
         # we found something
         if maybe_item.name in fruits:
             state.score += maybe_item.value * 2
+            state.inventory.append(maybe_item.name)
+
             print(f"You found a {maybe_item.name}, +{maybe_item.value * 2} points.")
             # g.set(player.pos_x, player.pos_y, g.empty)
             state.g.clear(state.player.pos_x, state.player.pos_y)
 
         else:
             state.score += maybe_item.value
+            state.inventory.append(maybe_item.name)
+
             print(f"You found a {maybe_item.name}, +{maybe_item.value} points.")
             # g.set(player.pos_x, player.pos_y, g.empty)
             state.g.clear(state.player.pos_x, state.player.pos_y)
@@ -31,12 +35,14 @@ def move_left(state):
         # We found something
         if maybe_item.name in fruits:
             state.score += maybe_item.value * 2
+            state.inventory.append(maybe_item.name)
             print(f"You found a {maybe_item.name}, +{maybe_item.value * 2} points.")
             # g.set(player.pos_x, player.pos_y, g.empty)
             state.g.clear(state.player.pos_x, state.player.pos_y)
 
         else:
             state.score += maybe_item.value
+            state.inventory.append(maybe_item.name)
             print(f"You found a {maybe_item.name}, +{maybe_item.value} points.")
             # g.set(player.pos_x, player.pos_y, g.empty)
             state.g.clear(state.player.pos_x, state.player.pos_y)
@@ -50,12 +56,14 @@ def move_down(state):
         # We found something
         if maybe_item.name in fruits:
             state.score += maybe_item.value * 2
+            state.inventory.append(maybe_item.name)
             print(f"You found a {maybe_item.name}, +{maybe_item.value * 2} points.")
             # g.set(player.pos_x, player.pos_y, g.empty)
             state.g.clear(state.player.pos_x, state.player.pos_y)
 
         else:
             state.score += maybe_item.value
+            state.inventory.append(maybe_item.name)
             print(f"You found a {maybe_item.name}, +{maybe_item.value} points.")
             # g.set(player.pos_x, player.pos_y, g.empty)
             state.g.clear(state.player.pos_x, state.player.pos_y)
@@ -68,12 +76,14 @@ def move_up(state):
         # We found something
         if maybe_item.name in fruits:
             state.score += maybe_item.value * 2
+            state.inventory.append(maybe_item.name)
             print(f"You found a {maybe_item.name}, +{maybe_item.value * 2} points.")
             # g.set(player.pos_x, player.pos_y, g.empty)
             state.g.clear(state.player.pos_x, state.player.pos_y)
 
         else:
             state.score += maybe_item.value
+            state.inventory.append(maybe_item.name)
             print(f"You found a {maybe_item.name}, +{maybe_item.value} points.")
             # g.set(player.pos_x, player.pos_y, g.empty)
             state.g.clear(state.player.pos_x, state.player.pos_y)

@@ -27,14 +27,14 @@ Här kan du skriva vilka kriterier du har arbetat med.
 
 |Version 1| Status |
 |---------|--------|
-|A        | ✅     |
-|B        | ✅     |
-|C        | ❌     |
-|D        | ✅     |
-|E        |        |
-|F        |        |
-|G        |        |
-|H        |  ✅    |
+|A        | ✅      |
+|B        | ✅      |
+|C        | ❌      |
+|D        | ✅      |
+|E        | ✅      |
+|F        | ✅      |
+|G        | ❌      |
+|H        | ✅      |
 
 |Version 2|Status|
 |---------|------|
