@@ -6,6 +6,8 @@ fruits = ["apple", "cherry", "watermelon"]
 def move_right(state):
 
     maybe_item = state.g.get(state.player.pos_x + 1, state.player.pos_y)
+    maybe_trap = state.g.get(state.player.pos_x + 1, state.player.pos_y)
+
     state.player.move(1, 0)
     state.score -= 1
 
@@ -27,9 +29,15 @@ def move_right(state):
             # g.set(player.pos_x, player.pos_y, g.empty)
             state.g.clear(state.player.pos_x, state.player.pos_y)
 
+    elif isinstance (maybe_trap, pickups.Trap):
+        print(f"You walked into a {maybe_trap.name}, {maybe_trap.penalty} points.")
+        state.score += maybe_trap.penalty
+
+
 def move_left(state):
 
     maybe_item = state.g.get(state.player.pos_x - 1, state.player.pos_y)
+    maybe_trap = state.g.get(state.player.pos_x - 1, state.player.pos_y)
     state.player.move(-1, 0)
     state.score -= 1
 
@@ -49,9 +57,15 @@ def move_left(state):
             # g.set(player.pos_x, player.pos_y, g.empty)
             state.g.clear(state.player.pos_x, state.player.pos_y)
 
+    elif isinstance (maybe_trap, pickups.Trap):
+        print(f"You walked into a {maybe_trap.name}, {maybe_trap.penalty} points.")
+        state.score += maybe_trap.penalty
+
+
 def move_down(state):
 
     maybe_item = state.g.get(state.player.pos_x, state.player.pos_y + 1)
+    maybe_trap = state.g.get(state.player.pos_x, state.player.pos_y + 1)
     state.player.move(0, 1)
     state.score -= 1
 
@@ -71,8 +85,14 @@ def move_down(state):
             # g.set(player.pos_x, player.pos_y, g.empty)
             state.g.clear(state.player.pos_x, state.player.pos_y)
 
+    elif isinstance (maybe_trap, pickups.Trap):
+        print(f"You walked into a {maybe_trap.name}, {maybe_trap.penalty} points.")
+        state.score += maybe_trap.penalty
+
+
 def move_up(state):
     maybe_item = state.g.get(state.player.pos_x, state.player.pos_y - 1)
+    maybe_trap = state.g.get(state.player.pos_x, state.player.pos_y - 1)
     state.player.move(0, -1)
     state.score -= 1
 
@@ -91,3 +111,7 @@ def move_up(state):
             print(f"You found a {maybe_item.name}, +{maybe_item.value} points.")
             # g.set(player.pos_x, player.pos_y, g.empty)
             state.g.clear(state.player.pos_x, state.player.pos_y)
+
+    elif isinstance (maybe_trap, pickups.Trap):
+        print(f"You walked into a {maybe_trap.name}, {maybe_trap.penalty} points.")
+        state.score += maybe_trap.penalty

@@ -23,3 +23,27 @@ def randomize(grid):
                 grid.set(x, y, item)
                 break  # avbryt while-loopen, fortsätt med nästa varv i for-loopen
 
+    for trap in traps:
+        while True:
+            x = grid.get_random_x()
+            y = grid.get_random_y()
+            if grid.is_empty(x, y):
+                grid.set(x, y, trap)
+                break
+
+
+
+class Trap:
+    """Representerar fällor."""
+
+    def __init__(self, name, penalty=-10, symbol="#"):
+        self.name = name
+        self.penalty = penalty
+        self.symbol = symbol
+
+    def __str__(self):
+        return self.symbol
+
+
+traps = [Trap("pitfall"), Trap("jaw trap")]
+
