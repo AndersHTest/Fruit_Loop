@@ -28,6 +28,21 @@ def start(state):
         elif command == "i":
             print_inventory(state)
 
+        elif command == "t":    # Desarmera fällor runt om dig med knappen "t"!
+            if isinstance (state.g.get(state.player.pos_x + 1, state.player.pos_y), pickups.Trap):
+                state.g.clear(state.player.pos_x + 1, state.player.pos_y)
+                print(f"You disarmed a trap to your right!")
+            elif isinstance (state.g.get(state.player.pos_x - 1, state.player.pos_y), pickups.Trap):
+                state.g.clear(state.player.pos_x -1, state.player.pos_y)
+                print(f"You disarmed a trap to your left!")
+            elif isinstance (state.g.get(state.player.pos_x, state.player.pos_y + 1), pickups.Trap):
+                state.g.clear(state.player.pos_x, state.player.pos_y + 1)
+                print(f"You disarmed a trap below you!")
+            elif isinstance (state.g.get(state.player.pos_x, state.player.pos_y - 1), pickups.Trap):
+                state.g.clear(state.player.pos_x, state.player.pos_y - 1)
+                print(f"You disarmed a trap above you!")
+
+
     # Hit kommer vi när while-loopen slutar
     print("Thank you for playing!")
 
