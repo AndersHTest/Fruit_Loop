@@ -13,16 +13,16 @@ def start(state):
         command = input("Use WASD to move, Q/X to quit. ")
         command = command.casefold()[:1]
 
-        if command == "d" and state.player.can_move(1, 0, state.g):  # move right
+        if command == "d" and state.player.can_move(1, 0, state.g, state):  # move right
             move_right(state)
 
-        elif command == "w" and state.player.can_move(0, -1, state.g): # move up
+        elif command == "w" and state.player.can_move(0, -1, state.g, state): # move up
             move_up(state)
 
-        elif command == "a" and state.player.can_move(-1, 0, state.g): # move left
+        elif command == "a" and state.player.can_move(-1, 0, state.g, state): # move left
             move_left(state)
 
-        elif command == "s" and state.player.can_move(0, 1, state.g): # move down
+        elif command == "s" and state.player.can_move(0, 1, state.g, state): # move down
             move_down(state)
 
         elif command == "i":
