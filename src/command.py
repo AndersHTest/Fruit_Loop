@@ -1,5 +1,6 @@
 from src.status import print_status
 from src.status import print_inventory
+from src.player import *
 from src.controls import *
 
 
@@ -14,28 +15,28 @@ def input_command(state):
         command = input("C = controls, Q/X = quit:")
         command = command.casefold()[:2]
 
-        if command == "d" and state.player.can_move(1, 0, state.g, state):  # move right
+        if command == "d" and can_move(1, 0, state.g, state):  # move right
             move_right(state)
 
-        elif command == "jd" and state.player.can_jump(2, 0, state.g, state):
+        elif command == "jd" and can_jump(2, 0, state.g, state):
             jump_right(state)
 
-        elif command == "w" and state.player.can_move(0, -1, state.g, state): # move up
+        elif command == "w" and can_move(0, -1, state.g, state): # move up
             move_up(state)
 
-        elif command == "jw" and state.player.can_jump(0, -2, state.g, state):
+        elif command == "jw" and can_jump(0, -2, state.g, state):
             jump_up(state)
 
-        elif command == "a" and state.player.can_move(-1, 0, state.g, state): # move left
+        elif command == "a" and can_move(-1, 0, state.g, state): # move left
             move_left(state)
 
-        elif command == "ja" and state.player.can_jump(-2, 0, state.g, state):
+        elif command == "ja" and can_jump(-2, 0, state.g, state):
             jump_left(state)
 
-        elif command == "s" and state.player.can_move(0, 1, state.g, state): # move down
+        elif command == "s" and can_move(0, 1, state.g, state): # move down
             move_down(state)
 
-        elif command == "js" and state.player.can_jump(0, 2, state.g, state):
+        elif command == "js" and can_jump(0, 2, state.g, state):
             jump_down(state)
 
         elif command == "i":

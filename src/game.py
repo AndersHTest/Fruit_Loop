@@ -4,7 +4,7 @@ from src.command import input_command
 
 def start(state):
 
-    #Startar input loop.
+    #startar input loop.
     input_command(state)
 
     # Hit kommer vi när while-loopen slutar
