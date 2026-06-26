@@ -1,5 +1,5 @@
-from command import input_command
-from gamestate import GameState
+from src.gamestate import GameState
+from src.command import input_command
 
 
 def start(state):

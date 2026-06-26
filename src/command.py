@@ -1,6 +1,6 @@
-from status import print_status
-from controls import *
-from status import print_inventory
+from src.status import print_status
+from src.status import print_inventory
+from src.controls import *
 
 
 def input_command(state):
