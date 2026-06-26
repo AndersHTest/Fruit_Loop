@@ -16,7 +16,12 @@ class Grid:
 
     def get(self, x, y):
         """Hämta det som finns på en viss position"""
-        return self.data[y][x]
+
+        try:
+            return self.data[y][x]
+        except IndexError:
+            return None
+
 
     def set(self, x, y, value):
         """Ändra vad som finns på en viss position"""
@@ -54,10 +59,10 @@ class Grid:
             self.set(j, self.height - 1, self.wall)
 
         for k in range(3, 7):
-            self.set(6, k, self.wall)
-            self.set(30, k, self.wall)
+            self.set(6, k+1, self.wall)
+            self.set(30, k+1, self.wall)
             self.set(k+13, 2, self.wall)
-            self.set(k+13, 8, self.wall)
+            self.set(k+13, 9, self.wall)
 
 
     # Används i filen pickups.py

@@ -36,19 +36,19 @@ Här kan du skriva vilka kriterier du har arbetat med.
 |G        | ✅      |
 |H        | ✅      |
 
-|Version 2|Status|
-|---------|------|
-|I        | ✅   |
-|J        |      |
-|K        |      |
-|L        |      |
-|M        |      |
-|N        |      |
+|Version 2| Status |
+|---------|--------|
+|I        | ✅     |
+|J        |        |
+|K        |        |
+|L        |        |
+|M        |        |
+|N        | ✅     |
 
-|Version 3|Status|
-|---------|------|
-|O        |      |
-|P        |      |
-|Q        |      |
-|R        | ✅   |
-|S        |      |
+|Version 3| Status |
+|---------|--------|
+|O        |        |
+|P        |        |
+|Q        |        |
+|R        | ✅     |
+|S        |        |
