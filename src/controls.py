@@ -6,7 +6,6 @@ fruits = ["apple", "cherry", "watermelon"]
 
 #Flytta ett steg åt höger
 def move_right(state):
-
     maybe_item = state.g.get(state.player.pos_x + 1, state.player.pos_y)
     maybe_trap = state.g.get(state.player.pos_x + 1, state.player.pos_y)
     maybe_end = state.g.get(state.player.pos_x + 1, state.player.pos_y)
@@ -38,7 +37,7 @@ def move_right(state):
 
     elif isinstance (maybe_end, pickups.End):
         if len(pickups.pickups) == len(state.inventory):
-            print(f"\nGrattis, du klarade spelet!\n")
+            print(f"\nCongratulations, you completed the game!\n")
 
 
 #Flytta två steg åt höger
@@ -74,12 +73,11 @@ def jump_right(state):
 
     elif isinstance (maybe_end, pickups.End):
         if len(pickups.pickups) == len(state.inventory):
-            print(f"\nGrattis, du klarade spelet!\n")
+            print(f"\nCongratulations, you completed the game!\n")
 
 
 #Flytta ett steg åt vänster
 def move_left(state):
-
     maybe_item = state.g.get(state.player.pos_x - 1, state.player.pos_y)
     maybe_trap = state.g.get(state.player.pos_x - 1, state.player.pos_y)
     maybe_end = state.g.get(state.player.pos_x - 1, state.player.pos_y)
@@ -109,7 +107,7 @@ def move_left(state):
 
     elif isinstance (maybe_end, pickups.End):
         if len(pickups.pickups) == len(state.inventory):
-            print(f"\nGrattis, du klarade spelet!\n")
+            print(f"\nCongratulations, you completed the game!\n")
 
 
 #Flytta två steg åt vänster
@@ -145,12 +143,11 @@ def jump_left(state):
 
     elif isinstance (maybe_end, pickups.End):
         if len(pickups.pickups) == len(state.inventory):
-            print(f"\nGrattis, du klarade spelet!\n")
+            print(f"\nCongratulations, you completed the game!\n")
 
 
 #Flytta ett steg ner
 def move_down(state):
-
     maybe_item = state.g.get(state.player.pos_x, state.player.pos_y + 1)
     maybe_trap = state.g.get(state.player.pos_x, state.player.pos_y + 1)
     maybe_end = state.g.get(state.player.pos_x, state.player.pos_y + 1)
@@ -180,7 +177,7 @@ def move_down(state):
 
     elif isinstance (maybe_end, pickups.End):
         if len(pickups.pickups) == len(state.inventory):
-            print(f"\nGrattis, du klarade spelet!\n")
+            print(f"\nCongratulations, you completed the game!\n")
 
 
 #Flytta två steg ner
@@ -216,7 +213,7 @@ def jump_down(state):
 
     elif isinstance (maybe_end, pickups.End):
         if len(pickups.pickups) == len(state.inventory):
-            print(f"\nGrattis, du klarade spelet!\n")
+            print(f"\nCongratulations, you completed the game!\n")
 
 #Flytta ett steg upp
 def move_up(state):
@@ -249,7 +246,7 @@ def move_up(state):
 
     elif isinstance (maybe_end, pickups.End):
         if len(pickups.pickups) == len(state.inventory):
-            print(f"\nGrattis, du klarade spelet!\n")
+            print(f"\nCongratulations, you completed the game!\n")
 
 
 #Flytta två steg upp
@@ -285,4 +282,4 @@ def jump_up(state):
 
     elif isinstance (maybe_end, pickups.End):
         if len(pickups.pickups) == len(state.inventory):
-            print(f"\nGrattis, du klarade spelet!\n")
+            print(f"\nCongratulations, you completed the game!\n")

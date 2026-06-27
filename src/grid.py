@@ -7,6 +7,7 @@ class Grid:
     empty = "."  # Tecken för en tom ruta
     wall = "■"   # Tecken för en ogenomtränglig vägg
 
+
     def __init__(self):
         """Skapa ett objekt av klassen Grid"""
         # Spelplanen lagras i en lista av listor. Vi använder "list comprehension" för att sätta tecknet för "empty" på varje plats på spelplanen.
@@ -27,8 +28,10 @@ class Grid:
         """Ändra vad som finns på en viss position"""
         self.data[y][x] = value
 
+
     def set_player(self, player):
         self.player = player
+
 
     def clear(self, x, y):
         """Ta bort item från position"""
@@ -69,6 +72,7 @@ class Grid:
     def get_random_x(self):
         """Slumpa en x-position på spelplanen"""
         return random.randint(0, self.width-1)
+
 
     def get_random_y(self):
         """Slumpa en y-position på spelplanen"""
