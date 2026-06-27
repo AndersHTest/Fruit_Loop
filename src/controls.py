@@ -9,6 +9,7 @@ def move_right(state):
 
     maybe_item = state.g.get(state.player.pos_x + 1, state.player.pos_y)
     maybe_trap = state.g.get(state.player.pos_x + 1, state.player.pos_y)
+    maybe_end = state.g.get(state.player.pos_x + 1, state.player.pos_y)
 
     state.player.move(1, 0)
     state.score -= 1
@@ -35,11 +36,16 @@ def move_right(state):
         print(f"\nYou walked into a {maybe_trap.name}, {maybe_trap.penalty} points.\n")
         state.score += maybe_trap.penalty
 
+    elif isinstance (maybe_end, pickups.End):
+        if len(pickups.pickups) == len(state.inventory):
+            print(f"\nGrattis, du klarade spelet!\n")
+
 
 #Flytta två steg åt höger
 def jump_right(state):
     maybe_item = state.g.get(state.player.pos_x + 2, state.player.pos_y)
     maybe_trap = state.g.get(state.player.pos_x + 2, state.player.pos_y)
+    maybe_end = state.g.get(state.player.pos_x + 2, state.player.pos_y)
 
     state.player.move(2, 0)
     state.score -= 1
@@ -66,12 +72,18 @@ def jump_right(state):
         print(f"\nYou walked into a {maybe_trap.name}, {maybe_trap.penalty} points.\n")
         state.score += maybe_trap.penalty
 
+    elif isinstance (maybe_end, pickups.End):
+        if len(pickups.pickups) == len(state.inventory):
+            print(f"\nGrattis, du klarade spelet!\n")
+
 
 #Flytta ett steg åt vänster
 def move_left(state):
 
     maybe_item = state.g.get(state.player.pos_x - 1, state.player.pos_y)
     maybe_trap = state.g.get(state.player.pos_x - 1, state.player.pos_y)
+    maybe_end = state.g.get(state.player.pos_x - 1, state.player.pos_y)
+
     state.player.move(-1, 0)
     state.score -= 1
 
@@ -95,11 +107,16 @@ def move_left(state):
         print(f"\nYou walked into a {maybe_trap.name}, {maybe_trap.penalty} points.\n")
         state.score += maybe_trap.penalty
 
+    elif isinstance (maybe_end, pickups.End):
+        if len(pickups.pickups) == len(state.inventory):
+            print(f"\nGrattis, du klarade spelet!\n")
+
 
 #Flytta två steg åt vänster
 def jump_left(state):
     maybe_item = state.g.get(state.player.pos_x - 2, state.player.pos_y)
     maybe_trap = state.g.get(state.player.pos_x - 2, state.player.pos_y)
+    maybe_end = state.g.get(state.player.pos_x - 2, state.player.pos_y)
 
     state.player.move(-2, 0)
     state.score -= 1
@@ -126,12 +143,18 @@ def jump_left(state):
         print(f"\nYou walked into a {maybe_trap.name}, {maybe_trap.penalty} points.\n")
         state.score += maybe_trap.penalty
 
+    elif isinstance (maybe_end, pickups.End):
+        if len(pickups.pickups) == len(state.inventory):
+            print(f"\nGrattis, du klarade spelet!\n")
+
 
 #Flytta ett steg ner
 def move_down(state):
 
     maybe_item = state.g.get(state.player.pos_x, state.player.pos_y + 1)
     maybe_trap = state.g.get(state.player.pos_x, state.player.pos_y + 1)
+    maybe_end = state.g.get(state.player.pos_x, state.player.pos_y + 1)
+
     state.player.move(0, 1)
     state.score -= 1
 
@@ -155,11 +178,16 @@ def move_down(state):
         print(f"\nYou walked into a {maybe_trap.name}, {maybe_trap.penalty} points.\n")
         state.score += maybe_trap.penalty
 
+    elif isinstance (maybe_end, pickups.End):
+        if len(pickups.pickups) == len(state.inventory):
+            print(f"\nGrattis, du klarade spelet!\n")
+
 
 #Flytta två steg ner
 def jump_down(state):
     maybe_item = state.g.get(state.player.pos_x, state.player.pos_y + 2)
     maybe_trap = state.g.get(state.player.pos_x, state.player.pos_y + 2)
+    maybe_end = state.g.get(state.player.pos_x, state.player.pos_y + 2)
 
     state.player.move(0, 2)
     state.score -= 1
@@ -186,10 +214,16 @@ def jump_down(state):
         print(f"\nYou walked into a {maybe_trap.name}, {maybe_trap.penalty} points.\n")
         state.score += maybe_trap.penalty
 
+    elif isinstance (maybe_end, pickups.End):
+        if len(pickups.pickups) == len(state.inventory):
+            print(f"\nGrattis, du klarade spelet!\n")
+
 #Flytta ett steg upp
 def move_up(state):
     maybe_item = state.g.get(state.player.pos_x, state.player.pos_y - 1)
     maybe_trap = state.g.get(state.player.pos_x, state.player.pos_y - 1)
+    maybe_end = state.g.get(state.player.pos_x, state.player.pos_y - 1)
+
     state.player.move(0, -1)
     state.score -= 1
 
@@ -213,11 +247,16 @@ def move_up(state):
         print(f"\nYou walked into a {maybe_trap.name}, {maybe_trap.penalty} points.\n")
         state.score += maybe_trap.penalty
 
+    elif isinstance (maybe_end, pickups.End):
+        if len(pickups.pickups) == len(state.inventory):
+            print(f"\nGrattis, du klarade spelet!\n")
+
 
 #Flytta två steg upp
 def jump_up(state):
     maybe_item = state.g.get(state.player.pos_x, state.player.pos_y - 2)
     maybe_trap = state.g.get(state.player.pos_x, state.player.pos_y - 2)
+    maybe_end = state.g.get(state.player.pos_x, state.player.pos_y - 2)
 
     state.player.move(0, -2)
     state.score -= 1
@@ -243,3 +282,7 @@ def jump_up(state):
     elif isinstance (maybe_trap, pickups.Trap):
         print(f"\nYou walked into a {maybe_trap.name}, {maybe_trap.penalty} points.\n")
         state.score += maybe_trap.penalty
+
+    elif isinstance (maybe_end, pickups.End):
+        if len(pickups.pickups) == len(state.inventory):
+            print(f"\nGrattis, du klarade spelet!\n")
