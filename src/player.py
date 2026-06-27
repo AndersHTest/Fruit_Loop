@@ -63,3 +63,32 @@ def can_jump(x, y, grid, state):
     else:
         return True
 
+
+def dig(grid, state):
+    #Check if there is a wall one step away in any direction. If yes and if you have a shovel, dig.
+    state_c = state.g.clear
+    state_g = state.g.get
+    state_x = state.player.pos_x
+    state_y = state.player.pos_y
+
+    is_wall_right = state_g(state_x + 1, state_y)
+    is_wall_up = state_g(state_x, state_y - 1)
+    is_wall_left = state_g(state_x - 1, state_y)
+    is_wall_down = state_g(state_x, state_y + 1)
+
+    if is_wall_right == grid.wall and len(state.shovel_inventory) > 0:
+        state_c(state_x + 1, state_y)
+        state.shovel_inventory.pop()
+        print(f"Wall gone!")
+    elif is_wall_up == grid.wall and len(state.shovel_inventory) > 0:
+        state_c(state_x, state_y - 1)
+        state.shovel_inventory.pop()
+        print(f"Wall gone!")
+    elif is_wall_left == grid.wall and len(state.shovel_inventory) > 0:
+        state_c(state_x - 1, state_y)
+        state.shovel_inventory.pop()
+        print(f"Wall gone!")
+    elif is_wall_down == grid.wall and len(state.shovel_inventory) > 0:
+        state_c(state_x, state_y + 1)
+        state.shovel_inventory.pop()
+        print(f"Wall gone!")

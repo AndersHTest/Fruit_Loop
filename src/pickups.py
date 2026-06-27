@@ -1,3 +1,4 @@
+import random
 
 class Item:
     """Representerar saker man kan plocka upp."""
@@ -9,8 +10,7 @@ class Item:
     def __str__(self):
         return self.symbol
 
-
-pickups = [Item("carrot"), Item("apple"), Item("strawberry"), Item("cherry"), Item("watermelon"), Item("radish"), Item("cucumber"), Item("meatball")]
+pickups = [Item("carrot"), Item("apple"), Item("strawberry"), Item("cherry"), Item("watermelon"), Item("radish"), Item("cucumber"), Item("cabbage")]
 
 
 class Trap:
@@ -23,7 +23,6 @@ class Trap:
 
     def __str__(self):
         return self.symbol
-
 
 traps = [Trap("pitfall"), Trap("jaw trap")]
 
@@ -39,6 +38,7 @@ class End:
         return self.symbol
 
 hurra = [End("E")]
+
 
 class Chest:
     """Representerar en kista"""
@@ -67,7 +67,20 @@ class Keys:
 nycklar = [Keys("nyckel 1"), Keys("nyckel 2")]
 
 
-def randomize(grid):
+class Shovel:
+    """Representerar en spade"""
+
+    def __init__(self, name, symbol="Î"):
+        self.name = name
+        self.symbol = symbol
+
+    def __str__(self):
+        return self.symbol
+
+spade = [Shovel("spade 1")]
+
+
+def randomize(grid, state):
     #slumpar ut frukter, grönsaker och en köttbulle.
     for item in pickups:
         while True:
@@ -76,6 +89,7 @@ def randomize(grid):
             y = grid.get_random_y()
             if grid.is_empty(x, y):
                 grid.set(x, y, item)
+                state.produced_vegetable_counter += 1
                 break  # avbryt while-loopen, fortsätt med nästa varv i for-loopen
 
     #slumpar ut fällor
@@ -113,3 +127,21 @@ def randomize(grid):
             if grid.is_empty(x, y):
                 grid.set(x, y, nyckel)
                 break
+
+    #slumpar ut en spade (förberett för att placera ut flera spadar)
+    for i in spade:
+        while True:
+            x = grid.get_random_x()
+            y = grid.get_random_y()
+            if grid.is_empty(x, y):
+                grid.set(x, y, i)
+                break
+
+def randomize_vegetable(grid, state):
+    random_vegetable = random.choice(pickups)
+
+    x = grid.get_random_x()
+    y = grid.get_random_y()
+    if grid.is_empty(x, y):
+        grid.set(x, y, random_vegetable)
+        state.produced_vegetable_counter += 1
