@@ -38,6 +38,7 @@ def move_right(state):
     elif isinstance (maybe_end, pickups.End):
         if len(pickups.pickups) == len(state.inventory):
             print(f"\nCongratulations, you completed the game!\n")
+            state.endgame = True
 
 
 #Flytta två steg åt höger
@@ -74,6 +75,7 @@ def jump_right(state):
     elif isinstance (maybe_end, pickups.End):
         if len(pickups.pickups) == len(state.inventory):
             print(f"\nCongratulations, you completed the game!\n")
+            state.endgame = True
 
 
 #Flytta ett steg åt vänster
@@ -108,6 +110,7 @@ def move_left(state):
     elif isinstance (maybe_end, pickups.End):
         if len(pickups.pickups) == len(state.inventory):
             print(f"\nCongratulations, you completed the game!\n")
+            state.endgame = True
 
 
 #Flytta två steg åt vänster
@@ -144,6 +147,7 @@ def jump_left(state):
     elif isinstance (maybe_end, pickups.End):
         if len(pickups.pickups) == len(state.inventory):
             print(f"\nCongratulations, you completed the game!\n")
+            state.endgame = True
 
 
 #Flytta ett steg ner
@@ -178,6 +182,7 @@ def move_down(state):
     elif isinstance (maybe_end, pickups.End):
         if len(pickups.pickups) == len(state.inventory):
             print(f"\nCongratulations, you completed the game!\n")
+            state.endgame = True
 
 
 #Flytta två steg ner
@@ -214,6 +219,7 @@ def jump_down(state):
     elif isinstance (maybe_end, pickups.End):
         if len(pickups.pickups) == len(state.inventory):
             print(f"\nCongratulations, you completed the game!\n")
+            state.endgame = True
 
 #Flytta ett steg upp
 def move_up(state):
@@ -247,6 +253,7 @@ def move_up(state):
     elif isinstance (maybe_end, pickups.End):
         if len(pickups.pickups) == len(state.inventory):
             print(f"\nCongratulations, you completed the game!\n")
+            state.endgame = True
 
 
 #Flytta två steg upp
@@ -283,3 +290,4 @@ def jump_up(state):
     elif isinstance (maybe_end, pickups.End):
         if len(pickups.pickups) == len(state.inventory):
             print(f"\nCongratulations, you completed the game!\n")
+            state.endgame = True

@@ -60,7 +60,7 @@ def randomize(grid):
                 grid.set(x, y, trap)
                 break
 
-    #slumpar ut en utväg
+    #slumpar ut en utväg(end)
     for end in hurra:
         while True:
             x = grid.get_random_x()

@@ -9,6 +9,7 @@ class GameState:
         self.player = Player(18, 6)
         self.score = 0
         self.inventory = []
+        self.endgame = False
 
         self.g = Grid()
         self.g.set_player(self.player)

@@ -6,5 +6,6 @@ def print_status(game_grid, state):
 
 
 def print_inventory(state):
+    """Visa lagerförteckning"""
     x = state.inventory
     print(f"\nInventory: {', '.join(x)}.")

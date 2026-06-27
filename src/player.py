@@ -15,10 +15,15 @@ class Player:
 
 
 def can_move(x, y, grid, state):
-    is_wall_right = state.g.get(state.player.pos_x + 1, state.player.pos_y)
-    is_wall_up = state.g.get(state.player.pos_x, state.player.pos_y - 1)
-    is_wall_left = state.g.get(state.player.pos_x - 1, state.player.pos_y)
-    is_wall_down = state.g.get(state.player.pos_x, state.player.pos_y + 1)
+    #Check if there is a wall one step away in given direction. If yes, deny move.
+    state_g = state.g.get
+    state_x = state.player.pos_x
+    state_y = state.player.pos_y
+
+    is_wall_right = state_g(state_x + 1, state_y)
+    is_wall_up = state_g(state_x, state_y - 1)
+    is_wall_left = state_g(state_x - 1, state_y)
+    is_wall_down = state_g(state_x, state_y + 1)
 
     if is_wall_right == grid.wall and x == 1:
         return False
@@ -33,15 +38,19 @@ def can_move(x, y, grid, state):
 
 
 def can_jump(x, y, grid, state):
+    #Check if there is a wall in one or two steps in the given direction. If yes, deny jump.
+    state_g = state.g.get
+    state_x = state.player.pos_x
+    state_y = state.player.pos_y
 
-    is_wall_right = state.g.get(state.player.pos_x + 2, state.player.pos_y)
-    is_wall_up = state.g.get(state.player.pos_x, state.player.pos_y - 2)
-    is_wall_left = state.g.get(state.player.pos_x - 2, state.player.pos_y)
-    is_wall_down = state.g.get(state.player.pos_x, state.player.pos_y + 2)
-    is_wall_right1 = state.g.get(state.player.pos_x + 1, state.player.pos_y)
-    is_wall_up1 = state.g.get(state.player.pos_x, state.player.pos_y - 1)
-    is_wall_left1 = state.g.get(state.player.pos_x - 1, state.player.pos_y)
-    is_wall_down1 = state.g.get(state.player.pos_x, state.player.pos_y + 1)
+    is_wall_right = state_g(state_x + 2, state_y)
+    is_wall_up = state_g(state_x, state_y - 2)
+    is_wall_left = state_g(state_x - 2, state_y)
+    is_wall_down = state_g(state_x, state_y + 2)
+    is_wall_right1 = state_g(state_x + 1, state_y)
+    is_wall_up1 = state_g(state_x, state_y - 1)
+    is_wall_left1 = state_g(state_x - 1, state_y)
+    is_wall_down1 = state_g(state_x, state_y + 1)
 
     if (is_wall_right == grid.wall and x == 2) or (is_wall_right1 == grid.wall and x == 2):
         return False
