@@ -40,6 +40,33 @@ class End:
 
 hurra = [End("E")]
 
+class Chest:
+    """Representerar en kista"""
+
+    def __init__(self, name, value=100, symbol="±"):
+        self.name = name
+        self.value = value
+        self.symbol = symbol
+
+    def __str__(self):
+        return self.symbol
+
+kistor = [Chest("kista"), Chest("kista")]
+
+
+class Keys:
+    """Representerar en nyckel"""
+
+    def __init__(self, name, symbol="¬"):
+        self.name = name
+        self.symbol = symbol
+
+    def __str__(self):
+        return self.symbol
+
+nycklar = [Keys("nyckel 1"), Keys("nyckel 2")]
+
+
 def randomize(grid):
     #slumpar ut frukter, grönsaker och en köttbulle.
     for item in pickups:
@@ -67,4 +94,22 @@ def randomize(grid):
             y = grid.get_random_y()
             if grid.is_empty(x, y):
                 grid.set(x, y, end)
+                break
+
+    #slumpar ut kistor
+    for kista in kistor:
+        while True:
+            x = grid.get_random_x()
+            y = grid.get_random_y()
+            if grid.is_empty(x, y):
+                grid.set(x, y, kista)
+                break
+
+    #slumpar ut nycklar
+    for nyckel in nycklar:
+        while True:
+            x = grid.get_random_x()
+            y = grid.get_random_y()
+            if grid.is_empty(x, y):
+                grid.set(x, y, nyckel)
                 break

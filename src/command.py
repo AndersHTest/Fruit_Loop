@@ -13,6 +13,9 @@ def input_command(state):
 
         if state.endgame:
             break
+        if state.steps >= 25:
+            state.steps = 0
+
 
         print_status(st_g, state)
 

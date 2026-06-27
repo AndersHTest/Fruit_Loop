@@ -9,9 +9,13 @@ def move_right(state):
     maybe_item = state.g.get(state.player.pos_x + 1, state.player.pos_y)
     maybe_trap = state.g.get(state.player.pos_x + 1, state.player.pos_y)
     maybe_end = state.g.get(state.player.pos_x + 1, state.player.pos_y)
+    maybe_key = state.g.get(state.player.pos_x + 1, state.player.pos_y)
+    maybe_chest = state.g.get(state.player.pos_x + 1, state.player.pos_y)
 
     state.player.move(1, 0)
     state.score -= 1
+    state.steps += 1
+    print(state.steps)
 
     if isinstance(maybe_item, pickups.Item):
         # we found something
@@ -39,6 +43,20 @@ def move_right(state):
         if len(pickups.pickups) == len(state.inventory):
             print(f"\nCongratulations, you completed the game!\n")
             state.endgame = True
+
+    elif isinstance (maybe_key, pickups.Keys):
+        state.key_inventory.append(maybe_key.name)
+        state.g.clear(state.player.pos_x, state.player.pos_y)
+        print(f"\nYou found a key, now go look for a chest.\n")
+
+    elif isinstance (maybe_chest, pickups.Chest):
+        if len(state.key_inventory) > 0:
+            state.g.clear(state.player.pos_x, state.player.pos_y)
+            state.score += maybe_chest.value
+            state.key_inventory.pop()
+            print(f"\nYou unlocked a chest and found a treasure worth {maybe_chest.value} points!\n")
+        elif len(state.key_inventory) < 1:
+            print(f"\nYou found a chest, but it's locked... Try to find a key.\n")
 
 
 #Flytta två steg åt höger
@@ -46,9 +64,12 @@ def jump_right(state):
     maybe_item = state.g.get(state.player.pos_x + 2, state.player.pos_y)
     maybe_trap = state.g.get(state.player.pos_x + 2, state.player.pos_y)
     maybe_end = state.g.get(state.player.pos_x + 2, state.player.pos_y)
+    maybe_key = state.g.get(state.player.pos_x + 2, state.player.pos_y)
+    maybe_chest = state.g.get(state.player.pos_x + 2, state.player.pos_y)
 
     state.player.move(2, 0)
     state.score -= 1
+    state.steps += 1
 
     if isinstance(maybe_item, pickups.Item):
         # we found something
@@ -76,6 +97,20 @@ def jump_right(state):
         if len(pickups.pickups) == len(state.inventory):
             print(f"\nCongratulations, you completed the game!\n")
             state.endgame = True
+
+    elif isinstance (maybe_key, pickups.Keys):
+        state.key_inventory.append(maybe_key.name)
+        state.g.clear(state.player.pos_x, state.player.pos_y)
+        print(f"\nYou found a key, now go look for a chest.\n")
+
+    elif isinstance (maybe_chest, pickups.Chest):
+        if len(state.key_inventory) > 0:
+            state.g.clear(state.player.pos_x, state.player.pos_y)
+            state.score += maybe_chest.value
+            state.key_inventory.pop()
+            print(f"\nYou unlocked a chest and found a treasure worth {maybe_chest.value} points!\n")
+        elif len(state.key_inventory) < 1:
+            print(f"\nYou found a chest, but it's locked... Try to find a key.\n")
 
 
 #Flytta ett steg åt vänster
@@ -83,9 +118,12 @@ def move_left(state):
     maybe_item = state.g.get(state.player.pos_x - 1, state.player.pos_y)
     maybe_trap = state.g.get(state.player.pos_x - 1, state.player.pos_y)
     maybe_end = state.g.get(state.player.pos_x - 1, state.player.pos_y)
+    maybe_key = state.g.get(state.player.pos_x - 1, state.player.pos_y)
+    maybe_chest = state.g.get(state.player.pos_x - 1, state.player.pos_y)
 
     state.player.move(-1, 0)
     state.score -= 1
+    state.steps += 1
 
     if isinstance(maybe_item, pickups.Item):
         # We found something
@@ -111,6 +149,20 @@ def move_left(state):
         if len(pickups.pickups) == len(state.inventory):
             print(f"\nCongratulations, you completed the game!\n")
             state.endgame = True
+
+    elif isinstance (maybe_key, pickups.Keys):
+        state.key_inventory.append(maybe_key.name)
+        state.g.clear(state.player.pos_x, state.player.pos_y)
+        print(f"\nYou found a key, now go look for a chest.\n")
+
+    elif isinstance (maybe_chest, pickups.Chest):
+        if len(state.key_inventory) > 0:
+            state.g.clear(state.player.pos_x, state.player.pos_y)
+            state.score += maybe_chest.value
+            state.key_inventory.pop()
+            print(f"\nYou unlocked a chest and found a treasure worth {maybe_chest.value} points!\n")
+        elif len(state.key_inventory) < 1:
+            print(f"\nYou found a chest, but it's locked... Try to find a key.\n")
 
 
 #Flytta två steg åt vänster
@@ -118,9 +170,12 @@ def jump_left(state):
     maybe_item = state.g.get(state.player.pos_x - 2, state.player.pos_y)
     maybe_trap = state.g.get(state.player.pos_x - 2, state.player.pos_y)
     maybe_end = state.g.get(state.player.pos_x - 2, state.player.pos_y)
+    maybe_key = state.g.get(state.player.pos_x - 2, state.player.pos_y)
+    maybe_chest = state.g.get(state.player.pos_x - 2, state.player.pos_y)
 
     state.player.move(-2, 0)
     state.score -= 1
+    state.steps += 1
 
     if isinstance(maybe_item, pickups.Item):
         # we found something
@@ -148,6 +203,20 @@ def jump_left(state):
         if len(pickups.pickups) == len(state.inventory):
             print(f"\nCongratulations, you completed the game!\n")
             state.endgame = True
+
+    elif isinstance (maybe_key, pickups.Keys):
+        state.key_inventory.append(maybe_key.name)
+        state.g.clear(state.player.pos_x, state.player.pos_y)
+        print(f"\nYou found a key, now go look for a chest.\n")
+
+    elif isinstance (maybe_chest, pickups.Chest):
+        if len(state.key_inventory) > 0:
+            state.g.clear(state.player.pos_x, state.player.pos_y)
+            state.score += maybe_chest.value
+            state.key_inventory.pop()
+            print(f"\nYou unlocked a chest and found a treasure worth {maybe_chest.value} points!\n")
+        elif len(state.key_inventory) < 1:
+            print(f"\nYou found a chest, but it's locked... Try to find a key.\n")
 
 
 #Flytta ett steg ner
@@ -155,9 +224,12 @@ def move_down(state):
     maybe_item = state.g.get(state.player.pos_x, state.player.pos_y + 1)
     maybe_trap = state.g.get(state.player.pos_x, state.player.pos_y + 1)
     maybe_end = state.g.get(state.player.pos_x, state.player.pos_y + 1)
+    maybe_key = state.g.get(state.player.pos_x, state.player.pos_y + 1)
+    maybe_chest = state.g.get(state.player.pos_x, state.player.pos_y + 1)
 
     state.player.move(0, 1)
     state.score -= 1
+    state.steps += 1
 
     if isinstance(maybe_item, pickups.Item):
         # We found something
@@ -183,6 +255,20 @@ def move_down(state):
         if len(pickups.pickups) == len(state.inventory):
             print(f"\nCongratulations, you completed the game!\n")
             state.endgame = True
+
+    elif isinstance (maybe_key, pickups.Keys):
+        state.key_inventory.append(maybe_key.name)
+        state.g.clear(state.player.pos_x, state.player.pos_y)
+        print(f"\nYou found a key, now go look for a chest.\n")
+
+    elif isinstance (maybe_chest, pickups.Chest):
+        if len(state.key_inventory) > 0:
+            state.g.clear(state.player.pos_x, state.player.pos_y)
+            state.score += maybe_chest.value
+            state.key_inventory.pop()
+            print(f"\nYou unlocked a chest and found a treasure worth {maybe_chest.value} points!\n")
+        elif len(state.key_inventory) < 1:
+            print(f"\nYou found a chest, but it's locked... Try to find a key.\n")
 
 
 #Flytta två steg ner
@@ -190,9 +276,12 @@ def jump_down(state):
     maybe_item = state.g.get(state.player.pos_x, state.player.pos_y + 2)
     maybe_trap = state.g.get(state.player.pos_x, state.player.pos_y + 2)
     maybe_end = state.g.get(state.player.pos_x, state.player.pos_y + 2)
+    maybe_key = state.g.get(state.player.pos_x, state.player.pos_y + 2)
+    maybe_chest = state.g.get(state.player.pos_x, state.player.pos_y + 2)
 
     state.player.move(0, 2)
     state.score -= 1
+    state.steps += 1
 
     if isinstance(maybe_item, pickups.Item):
         # we found something
@@ -221,14 +310,31 @@ def jump_down(state):
             print(f"\nCongratulations, you completed the game!\n")
             state.endgame = True
 
+    elif isinstance (maybe_key, pickups.Keys):
+        state.key_inventory.append(maybe_key.name)
+        state.g.clear(state.player.pos_x, state.player.pos_y)
+        print(f"\nYou found a key, now go look for a chest.\n")
+
+    elif isinstance (maybe_chest, pickups.Chest):
+        if len(state.key_inventory) > 0:
+            state.g.clear(state.player.pos_x, state.player.pos_y)
+            state.score += maybe_chest.value
+            state.key_inventory.pop()
+            print(f"\nYou unlocked a chest and found a treasure worth {maybe_chest.value} points!\n")
+        elif len(state.key_inventory) < 1:
+            print(f"\nYou found a chest, but it's locked... Try to find a key.\n")
+
 #Flytta ett steg upp
 def move_up(state):
     maybe_item = state.g.get(state.player.pos_x, state.player.pos_y - 1)
     maybe_trap = state.g.get(state.player.pos_x, state.player.pos_y - 1)
     maybe_end = state.g.get(state.player.pos_x, state.player.pos_y - 1)
+    maybe_key = state.g.get(state.player.pos_x, state.player.pos_y - 1)
+    maybe_chest = state.g.get(state.player.pos_x, state.player.pos_y - 1)
 
     state.player.move(0, -1)
     state.score -= 1
+    state.steps += 1
 
     if isinstance(maybe_item, pickups.Item):
         # We found something
@@ -255,15 +361,32 @@ def move_up(state):
             print(f"\nCongratulations, you completed the game!\n")
             state.endgame = True
 
+    elif isinstance (maybe_key, pickups.Keys):
+        state.key_inventory.append(maybe_key.name)
+        state.g.clear(state.player.pos_x, state.player.pos_y)
+        print(f"\nYou found a key, now go look for a chest.\n")
+
+    elif isinstance (maybe_chest, pickups.Chest):
+        if len(state.key_inventory) > 0:
+            state.g.clear(state.player.pos_x, state.player.pos_y)
+            state.score += maybe_chest.value
+            state.key_inventory.pop()
+            print(f"\nYou unlocked a chest and found a treasure worth {maybe_chest.value} points!\n")
+        elif len(state.key_inventory) < 1:
+            print(f"\nYou found a chest, but it's locked... Try to find a key.\n")
+
 
 #Flytta två steg upp
 def jump_up(state):
     maybe_item = state.g.get(state.player.pos_x, state.player.pos_y - 2)
     maybe_trap = state.g.get(state.player.pos_x, state.player.pos_y - 2)
     maybe_end = state.g.get(state.player.pos_x, state.player.pos_y - 2)
+    maybe_key = state.g.get(state.player.pos_x, state.player.pos_y - 2)
+    maybe_chest = state.g.get(state.player.pos_x, state.player.pos_y - 2)
 
     state.player.move(0, -2)
     state.score -= 1
+    state.steps += 1
 
     if isinstance(maybe_item, pickups.Item):
         # we found something
@@ -291,3 +414,17 @@ def jump_up(state):
         if len(pickups.pickups) == len(state.inventory):
             print(f"\nCongratulations, you completed the game!\n")
             state.endgame = True
+
+    elif isinstance (maybe_key, pickups.Keys):
+        state.key_inventory.append(maybe_key.name)
+        state.g.clear(state.player.pos_x, state.player.pos_y)
+        print(f"\nYou found a key, now go look for a chest.\n")
+
+    elif isinstance (maybe_chest, pickups.Chest):
+        if len(state.key_inventory) > 0:
+            state.g.clear(state.player.pos_x, state.player.pos_y)
+            state.score += maybe_chest.value
+            state.key_inventory.pop()
+            print(f"\nYou unlocked a chest and found a treasure worth {maybe_chest.value} points!\n")
+        elif len(state.key_inventory) < 1:
+            print(f"\nYou found a chest, but it's locked... Try to find a key.\n")

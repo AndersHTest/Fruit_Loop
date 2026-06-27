@@ -40,7 +40,7 @@ Här kan du skriva vilka kriterier du har arbetat med.
 |-----------|--------|
 | I         | ✅      |
 | J         |        |
-| K         |        |
+| K         | ✅      |
 | L         |        |
 | M         | ✅      |
 | N         | ✅      |
