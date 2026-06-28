@@ -15,7 +15,7 @@ def input_command(state):
             break
 
         if state.steps <= 0:    # Efter 25 drag produceras en ny grönsak och läggs på banan
-            state.steps = 25
+            state.steps = 24
             pickups.randomize_vegetable(st_g, state)
 
         print_status(st_g, state) # Antal poäng visas och spelplanen ritas på nytt
