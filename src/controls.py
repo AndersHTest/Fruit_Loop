@@ -102,7 +102,7 @@ def jump_right(state):
         state.score += maybe_trap.penalty
 
     elif isinstance (maybe_end, pickups.End):
-        if len(pickups.pickups) == len(state.inventory):
+        if state.produced_vegetable_counter == len(state.inventory):
             print(f"\nCongratulations, you completed the game!\n")
             state.endgame = True
 
@@ -160,7 +160,7 @@ def move_left(state):
         state.score += maybe_trap.penalty
 
     elif isinstance (maybe_end, pickups.End):
-        if len(pickups.pickups) == len(state.inventory):
+        if state.produced_vegetable_counter == len(state.inventory):
             print(f"\nCongratulations, you completed the game!\n")
             state.endgame = True
 
@@ -220,7 +220,7 @@ def jump_left(state):
         state.score += maybe_trap.penalty
 
     elif isinstance (maybe_end, pickups.End):
-        if len(pickups.pickups) == len(state.inventory):
+        if state.produced_vegetable_counter == len(state.inventory):
             print(f"\nCongratulations, you completed the game!\n")
             state.endgame = True
 
@@ -278,7 +278,7 @@ def move_down(state):
         state.score += maybe_trap.penalty
 
     elif isinstance (maybe_end, pickups.End):
-        if len(pickups.pickups) == len(state.inventory):
+        if state.produced_vegetable_counter == len(state.inventory):
             print(f"\nCongratulations, you completed the game!\n")
             state.endgame = True
 
@@ -338,7 +338,7 @@ def jump_down(state):
         state.score += maybe_trap.penalty
 
     elif isinstance (maybe_end, pickups.End):
-        if len(pickups.pickups) == len(state.inventory):
+        if state.produced_vegetable_counter == len(state.inventory):
             print(f"\nCongratulations, you completed the game!\n")
             state.endgame = True
 
@@ -395,7 +395,7 @@ def move_up(state):
         state.score += maybe_trap.penalty
 
     elif isinstance (maybe_end, pickups.End):
-        if len(pickups.pickups) == len(state.inventory):
+        if state.produced_vegetable_counter == len(state.inventory):
             print(f"\nCongratulations, you completed the game!\n")
             state.endgame = True
 
@@ -455,7 +455,7 @@ def jump_up(state):
         state.score += maybe_trap.penalty
 
     elif isinstance (maybe_end, pickups.End):
-        if len(pickups.pickups) == len(state.inventory):
+        if state.produced_vegetable_counter == len(state.inventory):
             print(f"\nCongratulations, you completed the game!\n")
             state.endgame = True
 
