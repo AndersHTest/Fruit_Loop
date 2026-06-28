@@ -140,8 +140,10 @@ def randomize(grid, state):
 def randomize_vegetable(grid, state):
     random_vegetable = random.choice(pickups)
 
-    x = grid.get_random_x()
-    y = grid.get_random_y()
-    if grid.is_empty(x, y):
-        grid.set(x, y, random_vegetable)
-        state.produced_vegetable_counter += 1
+    while True:
+        x = grid.get_random_x()
+        y = grid.get_random_y()
+        if grid.is_empty(x, y):
+            grid.set(x, y, random_vegetable)
+            state.produced_vegetable_counter += 1
+            break
