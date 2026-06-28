@@ -14,9 +14,9 @@ def input_command(state):
         if state.endgame:   # Kollar om endgame-variabeln är True. I så fall, avsluta loopen.
             break
 
-        if state.steps <= 0:    # Efter 25 drag produceras en ny grönsak och läggs på banan
-            state.steps = 25
+        if state.steps < 1:    # Efter 25 drag produceras en ny grönsak och läggs på banan
             pickups.randomize_vegetable(st_g, state)
+            state.steps = 25
 
         print_status(st_g, state) # Antal poäng visas och spelplanen ritas på nytt
 

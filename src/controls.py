@@ -1,4 +1,5 @@
 from src import pickups
+from src.status import print_status
 
 #Lista med frukter, dessa är värda mer än övriga saker man kan hitta på banan.
 fruits = ["apple", "cherry", "watermelon"]
@@ -41,6 +42,7 @@ def move_right(state):
 
     elif isinstance (maybe_end, pickups.End):       # Om alla grönsaker var upplockade när du klev på 'E' så avslutas spelet
         if state.produced_vegetable_counter == len(state.inventory):
+            print_status(state.g, state)
             print(f"\nCongratulations, you completed the game!\n")
             state.endgame = True
 
@@ -103,6 +105,7 @@ def jump_right(state):
 
     elif isinstance (maybe_end, pickups.End):
         if state.produced_vegetable_counter == len(state.inventory):
+            print_status(state.g, state)
             print(f"\nCongratulations, you completed the game!\n")
             state.endgame = True
 
@@ -161,6 +164,7 @@ def move_left(state):
 
     elif isinstance (maybe_end, pickups.End):
         if state.produced_vegetable_counter == len(state.inventory):
+            print_status(state.g, state)
             print(f"\nCongratulations, you completed the game!\n")
             state.endgame = True
 
@@ -221,6 +225,7 @@ def jump_left(state):
 
     elif isinstance (maybe_end, pickups.End):
         if state.produced_vegetable_counter == len(state.inventory):
+            print_status(state.g, state)
             print(f"\nCongratulations, you completed the game!\n")
             state.endgame = True
 
@@ -279,6 +284,7 @@ def move_down(state):
 
     elif isinstance (maybe_end, pickups.End):
         if state.produced_vegetable_counter == len(state.inventory):
+            print_status(state.g, state)
             print(f"\nCongratulations, you completed the game!\n")
             state.endgame = True
 
@@ -339,6 +345,7 @@ def jump_down(state):
 
     elif isinstance (maybe_end, pickups.End):
         if state.produced_vegetable_counter == len(state.inventory):
+            print_status(state.g, state)
             print(f"\nCongratulations, you completed the game!\n")
             state.endgame = True
 
@@ -396,6 +403,7 @@ def move_up(state):
 
     elif isinstance (maybe_end, pickups.End):
         if state.produced_vegetable_counter == len(state.inventory):
+            print_status(state.g, state)
             print(f"\nCongratulations, you completed the game!\n")
             state.endgame = True
 
@@ -456,6 +464,7 @@ def jump_up(state):
 
     elif isinstance (maybe_end, pickups.End):
         if state.produced_vegetable_counter == len(state.inventory):
+            print_status(state.g, state)
             print(f"\nCongratulations, you completed the game!\n")
             state.endgame = True
 
