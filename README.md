@@ -25,7 +25,11 @@ Vegetables = '?'<br>
 You = '@'<br>
 <br>
 <br>
-Plocka upp alla grönsaker och ta dig till utgången!
+Plocka upp alla grönsaker och ta dig till utgången!<br>
+Det finns en spade utlagd på banan som du kan använda för att gräva dig genom väggar.<br>
+Du kan plocka upp bomber som du sedan kan lägga ut för att spränga saker. Varning för explosionen.<br>
+Det finns fällor utspridda på banan. Ställ dig bredvid fällan och desarmera den.
+För extrapoäng kan du med hjälp av nycklar låsa upp kistor.<br>
 
 
 ---
