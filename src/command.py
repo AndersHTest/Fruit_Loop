@@ -1,4 +1,3 @@
-from src.status import print_status
 from src.status import print_inventory
 from src.player import *
 from src.controls import *
@@ -24,28 +23,28 @@ def input_command(state):
         command_key = command_key.casefold()[:2]
 
         if command_key == "d" and can_move(1, 0, st_g, state):  # move right
-            move_right(state)
+            move_player(state, 1, 0)
 
         elif command_key == "jd" and can_jump(2, 0, st_g, state): # jump right
-            jump_right(state)
+            move_player(state, 2, 0)
 
         elif command_key == "w" and can_move(0, -1, st_g, state): # move up
-            move_up(state)
+            move_player(state, 0, -1)
 
         elif command_key == "jw" and can_jump(0, -2, st_g, state): # jump up
-            jump_up(state)
+            move_player(state, 0, -2)
 
         elif command_key == "a" and can_move(-1, 0, st_g, state): # move left
-            move_left(state)
+            move_player(state, -1, 0)
 
         elif command_key == "ja" and can_jump(-2, 0, st_g, state): # jump left
-            jump_left(state)
+            move_player(state, -2, 0)
 
         elif command_key == "s" and can_move(0, 1, st_g, state): # move down
-            move_down(state)
+            move_player(state, 0, 1)
 
         elif command_key == "js" and can_jump(0, 2, st_g, state): # jump down
-            jump_down(state)
+            move_player(state, 0, 2)
 
         elif command_key == "i": # print inventory
             print_inventory(state)

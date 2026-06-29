@@ -14,6 +14,7 @@ class GameState:
         self.endgame = False  #Denna ändras till True när man lyckas ta sig ut via 'E' och spelet avslutas.
         self.steps = 25  #Counter för att hålla koll på antal drag. När denna är på 0 produceras en ny grönsak.
         self.produced_vegetable_counter = 0  #Räknar totalt antal producerade grönsaker.
+        self.grace_period = 0 #Håller koll på grace period - steg räknas ej om variabeln är mellan 0 - 5.
 
         self.g = Grid()
         self.g.set_player(self.player)
