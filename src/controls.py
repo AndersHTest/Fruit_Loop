@@ -92,7 +92,7 @@ def place_bomb(grid, state):
         state.bomb_placerad_x = state.player.pos_x
         state.bomb_placerad_y = state.player.pos_y
         state.bomb_inventory.pop()
-        print(f"You placed a bomb, watch out.")
+        print(f"\nYou placed a bomb, watch out.\n")
 
 
 def explosion(state):
@@ -116,7 +116,7 @@ def explosion(state):
                        state.bomb_placerad_y + 1,
                        state.bomb_placerad_y - 1]
 
-    print("BOOM!")
+    print("\nBOOM!\n")
     counter = 0
     for i in affected_area_x:
         if isinstance(state.g.get(i, affected_area_y[counter]), pickups.End):
@@ -125,5 +125,5 @@ def explosion(state):
             state.g.clear(i, affected_area_y[counter])
         if state.player.pos_x == i and state.player.pos_y == affected_area_y[counter]:
             state.score -= 30
-            print(f"You were too close to the bomb -30 points.")
+            print(f"\nYou were too close to the bomb -30 points.\n")
         counter += 1
