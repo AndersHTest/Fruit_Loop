@@ -67,7 +67,7 @@ def input_command(state):
                 print("\nYou can't place the bomb on the only way out!\n")
 
         elif command_key == "c": # print controls
-            print(f"\nUse WASD to move\nUse J+W/A/S/D to jump\nUse T to disarm trap\nUse I to show inventory\nUse G to dig")
+            print(f"\nUse WASD to move\nUse J+W/A/S/D to jump\nUse T to disarm trap\nUse I to show inventory\nUse G to dig\nUse B to place a bomb")
             print(f"\nSymbols:\nInactive bomb = 'b'\nActive bomb = 'B'\nChest = '±'\nKey = '¬'\nShovel = 'Î'\nTrap = #\nWall = '■'\nWay out = 'E'\nVegetable = '?'\nYou = '@'\n")
 
         elif command_key == "g": # Gräv genom en vägg till höger, vänster, upp eller ner.

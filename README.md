@@ -8,6 +8,7 @@ Use T to disarm trap<br>
 Use I to show inventory<br>
 Use C to open controls<br>
 Use G to dig<br>
+Use B to place a bomb<br>
 Use Q/X to quit <br>
 <br>
 
