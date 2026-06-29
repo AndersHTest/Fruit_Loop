@@ -31,7 +31,11 @@ def can_move(x, y, grid, state):
         return False
     elif is_wall_up == grid.wall and y == -1:
         return False
+    elif state_y - 1 < 0 and y == -1:
+        return False
     elif is_wall_left == grid.wall and x == -1:
+        return False
+    elif state_x + 1 > 35 and x == -1:
         return False
     elif is_wall_down == grid.wall and y == 1:
         return False
@@ -62,7 +66,11 @@ def can_jump(x, y, grid, state):
         return False
     elif (is_wall_up == grid.wall and y == -2) or (is_wall_up1 == grid.wall and y == -2):
         return False
+    elif state_y - 2 < 0 and y == -2:
+        return False
     elif (is_wall_left == grid.wall and x == -2) or (is_wall_left1 == grid.wall and x == -2):
+        return False
+    elif state_x -2 < 0 and x == -2:
         return False
     elif (is_wall_down == grid.wall and y == 2) or (is_wall_down1 == grid.wall and y == 2):
         return False
