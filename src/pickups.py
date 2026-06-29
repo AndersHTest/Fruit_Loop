@@ -79,6 +79,31 @@ class Shovel:
 
 spade = [Shovel("spade 1")]
 
+class Bomb:
+    """Representerar en säkrad bomb"""
+
+    def __init__(self, name, symbol="b"):
+        self.name = name
+        self.symbol = symbol
+
+    def __str__(self):
+        return self.symbol
+
+bombs = [Bomb("bomb1"), Bomb("bomb2")]
+
+
+class PickedUpBomb:
+    """Representerar en aktiv bomb"""
+
+    def __init__(self, name, symbol="B"):
+        self.name = name
+        self.symbol = symbol
+
+    def __str__(self):
+        return self.symbol
+
+picked_up_bomb = [PickedUpBomb("aktiv bomb1"), PickedUpBomb("aktiv bomb2")]
+
 
 def randomize(grid, state):
     #slumpar ut frukter, grönsaker och en köttbulle.
@@ -89,7 +114,6 @@ def randomize(grid, state):
             y = grid.get_random_y()
             if grid.is_empty(x, y):
                 grid.set(x, y, item)
-                state.produced_vegetable_counter += 1
                 break  # avbryt while-loopen, fortsätt med nästa varv i for-loopen
 
     #slumpar ut fällor
@@ -137,6 +161,14 @@ def randomize(grid, state):
                 grid.set(x, y, i)
                 break
 
+    for bomb in bombs:
+        while True:
+            x = grid.get_random_x()
+            y = grid.get_random_y()
+            if grid.is_empty(x, y):
+                grid.set(x, y, bomb)
+                break
+
 def randomize_vegetable(grid, state):
     random_vegetable = random.choice(pickups)
 
@@ -145,5 +177,4 @@ def randomize_vegetable(grid, state):
         y = grid.get_random_y()
         if grid.is_empty(x, y):
             grid.set(x, y, random_vegetable)
-            state.produced_vegetable_counter += 1
             break

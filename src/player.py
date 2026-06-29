@@ -27,11 +27,15 @@ def can_move(x, y, grid, state):
 
     if is_wall_right == grid.wall and x == 1:
         return False
+    elif state_x + 1 > 35 and x == 1:
+        return False
     elif is_wall_up == grid.wall and y == -1:
         return False
     elif is_wall_left == grid.wall and x == -1:
         return False
     elif is_wall_down == grid.wall and y == 1:
+        return False
+    elif state_y + 1 > 11 and y == 1:
         return False
     else:
         return True
@@ -54,11 +58,15 @@ def can_jump(x, y, grid, state):
 
     if (is_wall_right == grid.wall and x == 2) or (is_wall_right1 == grid.wall and x == 2):
         return False
+    elif state_x + 2 > 35 and x == 2:
+        return False
     elif (is_wall_up == grid.wall and y == -2) or (is_wall_up1 == grid.wall and y == -2):
         return False
     elif (is_wall_left == grid.wall and x == -2) or (is_wall_left1 == grid.wall and x == -2):
         return False
     elif (is_wall_down == grid.wall and y == 2) or (is_wall_down1 == grid.wall and y == 2):
+        return False
+    elif state_y + 2 > 11 and y == 2:
         return False
     else:
         return True
@@ -79,16 +87,16 @@ def dig(grid, state):
     if is_wall_right == grid.wall and len(state.shovel_inventory) > 0:
         state_c(state_x + 1, state_y)
         state.shovel_inventory.pop()
-        print(f"Wall gone!")
+        print(f"\nWall gone!\n")
     elif is_wall_up == grid.wall and len(state.shovel_inventory) > 0:
         state_c(state_x, state_y - 1)
         state.shovel_inventory.pop()
-        print(f"Wall gone!")
+        print(f"\nWall gone!\n")
     elif is_wall_left == grid.wall and len(state.shovel_inventory) > 0:
         state_c(state_x - 1, state_y)
         state.shovel_inventory.pop()
-        print(f"Wall gone!")
+        print(f"\nWall gone!\n")
     elif is_wall_down == grid.wall and len(state.shovel_inventory) > 0:
         state_c(state_x, state_y + 1)
         state.shovel_inventory.pop()
-        print(f"Wall gone!")
+        print(f"\nWall gone!\n")

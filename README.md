@@ -13,6 +13,8 @@ Use Q/X to quit <br>
 
 
 ### Symbols:<br>
+Inactive bomb = 'b'<br>
+Active bomb = 'B'<br>
 Chest = '±'<br>
 Key = '¬'<br>
 Shovel = 'Î'<br>
@@ -64,7 +66,7 @@ Jag har arbetat med följande krav:
 |:---------:|:------:|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |     O     |   ✅    | Grace period - efter man har tagit plockat upp något, kan man gå 5 steg utan att det dras några poäng.                                                                                                                                                                                                                                              |
 |     P     |   ❌    | AI-fiender - placera 1-3 fiender på kartan. För varje steg spelaren tar ska ska varje fiende ha en slumpmässig chans att flytta sig ett steg närmare spelaren. Minus 20 poäng om en fiende hinner ifatt. (Inte diagonalt, dvs. samma rörelsemönster som spelaren. Fienderna ska vara lite "långsammare" så att det är lagom svårt att undvika dem.) |
-|     Q     |   ❌    | Tryck "B" för att placera en bomb. Efter 3 drag smäller bomben och förstör allt på sin ruta och de åtta som gränsar till den. (fällor, väggar, m.m.) Om spelaren är kvar förlorar man poäng.                                                                                                                                                        |
+|     Q     |   ✅    | Tryck "B" för att placera en bomb. Efter 3 drag smäller bomben och förstör allt på sin ruta och de åtta som gränsar till den. (fällor, väggar, m.m.) Om spelaren är kvar förlorar man poäng.                                                                                                                                                        |
 |     R     |   ✅    | Ett nytt kommando ("T" för trap) för att desarmera fällor.                                                                                                                                                                                                                                                                                          |
 |     S     |   ❌    | Använd TDD för att testa några av funktionerna i koden.                                                                                                                                                                                                                                                                                             |
 |     T     |   ❌    | Använd paketet curses för bättre hantering av terminalen, exempelvis getkey i stället för input.                                                                                                                                                                                                                                                    |
